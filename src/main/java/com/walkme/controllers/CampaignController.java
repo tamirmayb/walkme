@@ -26,6 +26,11 @@ public class CampaignController {
     @Autowired
     private CampaignService campaignService;
 
+    @GetMapping("/")
+    public ResponseEntity<List<Campaign>> getAllCampaigns(@PathVariable("user_id") String userId) {
+        return ResponseEntity.ok(campaignRepository.findAll());
+    }
+
     @GetMapping("/{user_id}")
     public ResponseEntity<List<CampaignDTO>> getCampaigns(@PathVariable("user_id") String userId) {
         return ResponseEntity.ok(campaignService.getCampaignsForUser(userId));
