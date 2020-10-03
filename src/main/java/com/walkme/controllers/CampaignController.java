@@ -27,7 +27,7 @@ public class CampaignController {
     private CampaignService campaignService;
 
     @GetMapping("/")
-    public ResponseEntity<List<Campaign>> getAllCampaigns(@PathVariable("user_id") String userId) {
+    public ResponseEntity<List<Campaign>> getAllCampaigns() {
         return ResponseEntity.ok(campaignRepository.findAll());
     }
 
